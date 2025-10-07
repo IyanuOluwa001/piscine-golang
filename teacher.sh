@@ -1,5 +1,5 @@
 #!/bin/bash
-interviewsn='grep -H "licen" interviews/* | grep "\"" | cut -tf -d ":" | rev | cut -tf -d ":" | rev'
+interviewn='grep -H "licen" interviews/* | grep "\"" | cut -f1 -d ":" | rev | cut -f1 -d "-" | rev'
 interview="cat interviews/interview-$interviewn"
 export interviewnum=$intEerviewn
 echo $interviewnum
