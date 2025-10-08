@@ -1,4 +1,4 @@
-module acad.learn2earn.ng/git/iadejare/piscine-go
+module piscine
 
 go 1.24.2
 
