@@ -1,0 +1,180 @@
+Exercise 1 (Introduction):
+- On terminal, run:
+sudo apt install git
+- run:
+sudo apt update
+- insert password: 1234
+- sudo apt install git
+- Press y
+- run:
+git version (just to be sure)
+- run:
+- create repository priscine-go
+git config --global credential.helper store
+- run:
+git clone https://acad.learn2earn.ng/git/iadejare/piscine-go.git (to clone your repository from your dashboard)
+- insert username: iadejare
+- insert the password provided by l2e
+
+- To begin editing with vscode on ubuntu system, download the .deb file from vscode site
+- run:
+sudo dpkg -i ~/Downloads/code_*.deb
+sudo apt-get install -f
+- insert password: 1234 (your vscode is downloaded)
+- create file: hello.sh
+- insert:
+#! /bin/bash
+
+echo "Hello iadejare!"
+- on terminal, run:
+echo "Hello iadejare"
+- on terminal, you can get the same result by running:
+sh hello.sh
+- run: chmod 775 hello.sh (to allow running by path)
+- run: ./hello.sh (to get the same result)
+- to allow vscode terminal accesss to your git, you need to run:
+git config --global user.email "iyanuoluwaadejare2025@gmail.com"
+git config --global user.name "iadejare"
+- run on terminal:
+git add hello.sh
+git commit -m "my first commit|
+git push
+
+
+Exercise 2 (make-it-better):
+- open a new window
+- open a folder make-it-better
+- open terminal
+- run:
+mkdir O A
+touch 1 2 4 5 6 7 8 9
+ln -s 0 3
+chmod u=r,g=,o=x 0 A
+chmod u=r,g=,o=w 1 9
+chmod u=rw,g=,o=r 2 8
+chmod u=rx,g=,o=x 4 7
+chmod u=r,g=rw,o= 5 6
+TZ=UTC touch -t 198601050000 0
+TZ=UTC touch -t 198611130001 1
+TZ=UTC touch -t 198803050010 2
+TZ=UTC touch -h -t 199002160011 3
+TZ=UTC touch -t 199010070100 4
+TZ=UTC touch -t 199011070101 5
+TZ=UTC touch -t 199102080110 6
+TZ=UTC touch -t 199103080111 7
+TZ=UTC touch -t 199405201000 8
+TZ=UTC touch -t 199406101001 9
+TZ=UTC touch -t 199504101010 A
+chmod 510 4
+chmod 510 7
+
+- check if the output is correct by running:
+TZ=utc ls -l --time-style='+%F %R' | sed 1d | awk '{print $1, $6, $7, $8, $9, $10}'
+- in the same make-it-better directly:
+tar -cf done.tar * (to generate done.tar file)
+- move the done.tar file into the piscine-go folder
+- if you ls, you should only see done.tar and hello.sh
+
+Insight video: https://youtu.be/LnKoncbQBsM?si=7xyLxPfBnUjVPOQn
+
+Exercise 3(who are you):
+Exercise 4(to git or not to git):
+Exercise 5(cl camp1)
+
+
+Exercise 6(cl camp2)
+- created the file r
+- insert into r R by running the below on terminal:
+	echo "R" > r
+- save with ctrl s
+- run cat -e r
+
+
+Exercise 7(cl camp3)
+- create the file look
+- insert code:
+#!/bin/bash
+
+find . \( -name 'a*' -o -name '*z' -o -name 'z*a!' \)
+- chmod +x look (to give permission)
+- ./look
+- push to github and check
+
+
+Exercise 8(cl camp4)
+- create file myfamily.sh
+- insert:
+#!/bin/bash
+
+
+curl -s https://acad.learn2earn.ng/assets/superhero/all.json | \jq --arg id "$HERO_ID" -r '.[] | select(.id == ($id | tonumber)) | .connections.relatives | @json' | \sed 's/^"\(.*\)"$/\1/'
+
+- run on terminal:
+export HERO_ID=1
+./myfamily.sh
+
+- push to github and check
+
+Exercise 9(cl camp5):
+- open the file lookagain.sh
+- put in the file:
+#!/bin/bash
+
+find . -type f -name '*.sh' -printf '%f\n' |      # find files ending with .sh, print just filename
+sed 's/\.sh$//' |                                 # remove the .sh extension
+sort -r                                          # sort in descending order
+
+- run on terminal:
+echo -e '#!/bin/bash\n\nfind . -type f -name "*.sh" -printf "%f\n" | sed "s/\\.sh$//" | sort -r' > lookagain.sh
+
+- chmod +x lookagain.sh
+- ./lookagain.sh | cat -e
+- push to github and check
+
+Exercise 10(cl camp6):
+- open the file lookagain.sh
+- insert:
+#!/bin/bash
+
+find . -type f -name '*.sh' -printf '%f\n' |      # find files ending with .sh, print just filename
+sed 's/\.sh$//' |                                 # remove the .sh extension
+sort -r                                          # sort in descending order
+- save and now run the following on terminal:
+echo -e '#!/bin/bash\n\ncount=$(find . \( -type f -o -type d \) | wc -l)\necho "$count"' > countfiles.sh
+chmod +x countfiles.sh
+./countfiles.sh
+- ./countfiles.sh | cat -e
+- push to github and check
+
+Exercise 11(cl camp7):
+- create the file: "\?$*'ChouMi'*$?\"
+- insert: 01
+- run: ls | cat -e
+
+Exercise 12(cl camp8):
+- code skip.sh
+- save the file for it to reflect
+- insert:
+#!/bin/bash
+
+ls -1 | sort -V | xargs ls -l | sed -n 'p;n'
+- chmod +x skip.sh
+- ./skip.sh
+- push to github and check
+
+EXERCISE 13(now get to work):
+- clone the repo provided:
+git clone https://github.com/01-edu/the-final-cl-test.git
+- change directory to the new folder:
+cd the-final-cl-test
+- Try to find the clue:
+grep CLUE ./mystery/crimescene
+- create folder my_answer.sh
+- insert:
+printf "Dartey Henv\n"
+- change directory into piscine:
+cd piscine-go
+- push to github
+
+EXERCISE 14(explain):
+- code teacher.sh
