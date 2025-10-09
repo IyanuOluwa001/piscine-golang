@@ -26,5 +26,4 @@ func printCombNHelper(n, start int, comb []int, first bool) {
 		printCombNHelper(n, i+1, append(comb, i), first && len(comb) == 0)
 		first = false
 	}
-
 }
