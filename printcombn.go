@@ -8,6 +8,7 @@ func PrintCombN(n int) {
 	}
 	var comb []int
 	printCombNHelper(n, 0, comb, true)
+	z01.PrintRune('\n')
 }
 
 func printCombNHelper(n, start int, comb []int, first bool) {
@@ -25,4 +26,5 @@ func printCombNHelper(n, start int, comb []int, first bool) {
 		printCombNHelper(n, i+1, append(comb, i), first && len(comb) == 0)
 		first = false
 	}
+
 }
