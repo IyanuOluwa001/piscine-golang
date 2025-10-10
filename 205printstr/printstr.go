@@ -1,9 +1,7 @@
-package piscine
+package main
 
-import "fmt"
+import "piscine"
 
-func PrintStr(s string) {
-	for _, char := range s {
-		fmt.Printf("%c\n", char)
-	}
+func main() {
+	piscine.PrintStr("Hello World!")
 }
