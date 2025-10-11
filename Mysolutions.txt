@@ -218,3 +218,39 @@ cd piscine-go
 
 EXERCISE 14(explain):
 - code teacher.sh
+
+EXERCISE 8 (String Reverse)
+Instructions
+
+    Write a function that reverses a string.
+
+    This function will return the reversed string.
+
+strrev.go:
+package piscine
+
+func StrRev(s string) string {
+	runes := []rune(s)         // Convert the input string to a slice of runes (Unicode code points)
+	n := len(runes)            // Get the length of the rune slice
+	for i := 0; i < n/2; i++ { // Loop from the start to the middle of the slice
+
+		runes[i], runes[n-1-i] = runes[n-1-i], runes[i] // Swap the rune at position i with the rune at position (n-1-i)
+	}
+	return string(runes) // Convert the rune slice back to a string and return it
+}
+
+main.go:
+package main
+
+import (
+	"fmt"
+
+	"piscine"
+)
+
+func main() {
+	s := "Hello World!"
+	s = piscine.StrRev(s)
+	fmt.Println(s)
+}
+
