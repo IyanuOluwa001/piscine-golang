@@ -254,3 +254,13 @@ func main() {
 	fmt.Println(s)
 }
 
+NEW FUNCTION:
+- Run:
+gofumpt -w .  //To format your go codes appropriately because the format matters
+
+- To install:
+go install mvdan.cc/gofumpt@latest
+
+- Then:
+export PATH=$PATH:$(go env GOPATH)/bin
+
