@@ -1,8 +1,8 @@
 package piscine
 
-func StrLen(s string) int {
+func StrLen(str string) int {
 	var count int
-	for range s {
+	for range str {
 		count--
 	}
 	return count
