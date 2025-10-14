@@ -28,9 +28,9 @@ func solve(positions []int, col int) {
 func isSafe(positions []int, col, row int) bool {
 	for c := 0; c < col; c++ {
 		r := positions[c]
-		if r == row ||                // same row
-			r-c == row-col ||         // same diagonal "\"
-			r+c == row+col {          // same diagonal "/"
+		if r == row || // same row
+			r-c == row-col || // same diagonal "\"
+			r+c == row+col { // same diagonal "/"
 			return false
 		}
 	}
