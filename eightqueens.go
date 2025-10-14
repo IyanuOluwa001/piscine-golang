@@ -1,46 +1,39 @@
 package piscine
 
-import "fmt"
+import "github.com/01-edu/z01"
 
-// EightQueens prints all solutions to the 8-queens puzzle
-func EightQueens() {
-	positions := make([]int, 8) // positions[col] = row of queen in that column
-	solve(positions, 0)
+func printsolution(position [8]int) {
+	for i := 0; i < 8; i++ {
+		z01.PrintRune(rune(position[i] + '1')) // print each queen row + '1'
+	}
+	z01.PrintRune('\n')
 }
 
-// solve tries to place queens starting from column 'col'
-func solve(positions []int, col int) {
+func isValid(position [8]int, col, row int) int {
+	for prev := 0; prev < col; prev++ {
+		if position[prev] == row || // same row
+			position[prev]-prev == row-col || // same diagonal "\"
+			position[prev]+prev == row+col { // same diagonal "/"
+			return 0
+		}
+	}
+	return 1
+}
+
+func placeQueen(col int, position [8]int) {
 	if col == 8 {
-		printSolution(positions)
+		printsolution(position)
 		return
 	}
-
-	// Try placing queen in each row for this column
-	for row := 1; row <= 8; row++ {
-		if isSafe(positions, col, row) {
-			positions[col] = row
-			solve(positions, col+1)
+	for row := 0; row < 8; row++ {
+		if isValid(position, col, row) == 1 {
+			position[col] = row
+			placeQueen(col+1, position)
 		}
 	}
 }
 
-// isSafe checks if a queen can be safely placed at (col,row)
-func isSafe(positions []int, col, row int) bool {
-	for c := 0; c < col; c++ {
-		r := positions[c]
-		if r == row || // same row
-			r-c == row-col || // same diagonal "\"
-			r+c == row+col { // same diagonal "/"
-			return false
-		}
-	}
-	return true
-}
-
-// printSolution prints the positions as a string of digits
-func printSolution(positions []int) {
-	for _, row := range positions {
-		fmt.Print(row)
-	}
-	fmt.Println()
+func EightQueens() {
+	var position [8]int
+	placeQueen(0, position)
 }
