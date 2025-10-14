@@ -277,3 +277,5 @@ github.com/01-edu/z01 v0.2.0/go.mod h1:BH7t35JaNFuP83rTJDc5nkSfgmC/HYVcJsUcdFqYZ
 
 
 Strings in Goland are written in utf-8 and made of bytes
+
+git clone https://lodesany@acad.learn2earn.ng/git/lodesany/piscine-go.git
