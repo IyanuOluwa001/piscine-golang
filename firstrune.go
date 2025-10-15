@@ -37,7 +37,7 @@ func NRune(s string, n int) rune {
 	return 0 // n is larger than the number of runes
 }
 
-Que 4: 
+Que 4:
 Write a function that behaves like the Compare function.
 
 func Compare(a, b string) int {
