@@ -9,7 +9,8 @@ import (
 func main() {
 	args := os.Args[1:]
 
-	if len(args) == 0 || args[0] == "--help" || args[0] == "-h" {
+	// If no args or help flag present anywhere -> print help
+	if len(args) == 0 || contains(args, "--help") || contains(args, "-h") {
 		printHelp()
 		return
 	}
@@ -43,6 +44,15 @@ func main() {
 	z01.PrintRune('\n')
 }
 
+func contains(slice []string, s string) bool {
+	for _, v := range slice {
+		if v == s {
+			return true
+		}
+	}
+	return false
+}
+
 func sortString(s string) string {
 	runes := []rune(s)
 	for i := 0; i < len(runes); i++ {
@@ -58,10 +68,10 @@ func sortString(s string) string {
 func printHelp() {
 	help := `--insert
   -i
-         This flag inserts the string into the string passed as argument.
+	 This flag inserts the string into the string passed as argument.
 --order
   -o
-         This flag will behave like a boolean, if it is called it will order the argument.`
+	 This flag will behave like a boolean, if it is called it will order the argument.`
 	for _, r := range help {
 		z01.PrintRune(r)
 	}
