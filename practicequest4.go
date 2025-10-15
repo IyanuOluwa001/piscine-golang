@@ -21,3 +21,9 @@ func IterativeFactorial1(nb int) int {
 // r1 x i2 = r2
 // r2 x i3 = r6
 // r6 x i4 = r24
+
+/*
+//package piscine
+
+- Go source text is Unicode characters encoded in UTF-8
+*/
