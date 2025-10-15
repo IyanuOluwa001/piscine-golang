@@ -12,14 +12,16 @@ func main() {
 	isUpper := false
 	if len(args) > 0 && args[0] == "--upper" {
 		isUpper = true
-		args = args[1:] // skip the flag
+		args = args[1:]
 	}
+
+	printed := false
 
 	for _, arg := range args {
 		n := 0
 		valid := true
 
-		// Convert string digits to integer manually
+		// Manual integer parsing (no strconv)
 		for _, r := range arg {
 			if r < '0' || r > '9' {
 				valid = false
@@ -28,9 +30,9 @@ func main() {
 			n = n*10 + int(r-'0')
 		}
 
-		// Check range (1–26)
 		if !valid || n < 1 || n > 26 {
 			z01.PrintRune(' ')
+			printed = true
 			continue
 		}
 
@@ -39,6 +41,11 @@ func main() {
 		} else {
 			z01.PrintRune(rune('a' + n - 1))
 		}
+		printed = true
 	}
-	z01.PrintRune('\n')
+
+	// Print newline only if we printed anything
+	if printed {
+		z01.PrintRune('\n')
+	}
 }
