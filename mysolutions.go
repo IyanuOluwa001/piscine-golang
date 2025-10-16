@@ -87,10 +87,11 @@ func Compare (a, b string) int {
 	}
 	return 1
 }
-*/
+
 
 // Que 5:
 // Write a function that counts the letters of a string and returns the count.
+
 package piscine
 
 func AlphaCount1(s string) int {
@@ -102,6 +103,7 @@ func AlphaCount1(s string) int {
 	}
 	return iyanu
 }
+*/
 
 /*
 Que 6:
@@ -442,4 +444,220 @@ func isValidBase1(base string) bool {
 	return true
 }
 
+*/
+
+//One - AppendRange
+/*
+Instructions
+
+Write a function that takes an int min and an int max
+as parameters.
+The function should return a slice of ints with all
+the values between the min and max.
+
+Min is included, and max is excluded.
+If min is greater than or equal to max, a nil slice is returned.
+
+make is not allowed for this exercise.
+*/
+
+package piscine
+
+func AppendRange1(min, max int) []int {
+	if min >= max {
+		return nil
+	}
+
+	var result []int
+
+	for i := min; i < max; i++ {
+		result = append(result, i)
+	}
+
+	return result
+}
+
+/*
+//Two - MakeRange
+Instructions
+
+Write a function that takes an int min and an int max as parameters. The function must return a slice of ints with all the values between min and max.
+
+Min is included, and max is excluded.
+
+If min is greater than or equal to max, a nil slice is returned.
+
+append is not allowed for this exercise.
+
+package piscine
+
+func MakeRange(min, max int) []int {
+	if min >= max {
+		return nil
+	}
+
+	size := max - min
+	result := make([]int, size)
+
+	for i := 0; i < size; i++ {
+		result[i] = min + i
+	}
+
+	return result
+}
+
+//Three - ConcatParams
+Instructions
+
+Write a function that takes the arguments received in parameters and returns them as a string. The string is the result of all
+the arguments concatenated with a newline (\n) between.
+
+package piscine
+
+func ConcatParams(args []string) string {
+	var result string
+
+	for i, word := range args {
+		result += word
+		if i != len(args)-1 {
+			result += "\n"
+		}
+	}
+
+	return result
+}
+*/
+
+/*
+//Four - Splitwhitespaces
+Instructions
+
+Write a function that separates the words of a string and puts them in a string slice.
+
+The separators are spaces, tabs and newlines.
+
+package piscine
+
+func SplitWhiteSpaces(s string) []string {
+	var words []string
+	var word string
+
+	for _, r := range s {
+		if r == ' ' || r == '\t' || r == '\n' {
+			if word != "" {
+				words = append(words, word)
+				word = ""
+			}
+		} else {
+			word += string(r)
+		}
+	}
+
+	if word != "" {
+		words = append(words, word)
+	}
+
+	return words
+}
+
+//Five - PrintwordStable
+Instructions
+
+Write a function that receives a string slice
+and prints each element of the slice in a seperate line.
+package piscine
+
+import "github.com/01-edu/z01"
+
+func PrintWordsTables(a []string) {
+	for _, word := range a {
+		for _, r := range word {
+			z01.PrintRune(r)
+		}
+		z01.PrintRune('\n')
+	}
+}
+
+
+//Six - Split
+Instructions
+
+Write a function that receives a string and a separator and
+returns a slice of strings that results of splitting the string s by the separator sep.
+package piscine
+
+func Split(s, sep string) []string {
+	var result []string
+	word := ""
+
+	for i := 0; i < len(s); {
+		// Check if the substring at position i starts with sep
+		if i+len(sep) <= len(s) && s[i:i+len(sep)] == sep {
+			// Add the current word to result and reset it
+			result = append(result, word)
+			word = ""
+			i += len(sep) // Skip over the separator
+		} else {
+			word += string(s[i])
+			i++
+		}
+	}
+	// Add the last word
+	result = append(result, word)
+	return result
+}
+
+//Seven - ConvertBase
+/*
+Instructions
+
+Write a function that receives three arguments:
+
+    nbr: A string representing a numberic value in a base.
+
+    baseFrom: A string representing the base nbr it's using.
+
+    baseTo: A string representing the base nbr should be represented in the returned value.
+
+Only valid bases will be tested. Negative numbers will not be tested.
+*/
+
+/*
+package piscine
+
+func ConvertBase(nbr, baseFrom, baseTo string) string {
+	// Step 1: Convert nbr (string) in baseFrom → integer (base 10)
+	num := 0
+	baseLenFrom := len(baseFrom)
+
+	for _, ch := range nbr {
+		num = num*baseLenFrom + indexOf(ch, baseFrom)
+	}
+
+	// Step 2: Convert integer (base 10) → baseTo representation
+	if num == 0 {
+		return string(baseTo[0])
+	}
+
+	result := ""
+	baseLenTo := len(baseTo)
+
+	for num > 0 {
+		remainder := num % baseLenTo
+		result = string(baseTo[remainder]) + result
+		num /= baseLenTo
+	}
+
+	return result
+}
+
+// Helper: find index of a rune in a string
+func indexOf(ch rune, base string) int {
+	for i, b := range base {
+		if b == ch {
+			return i
+		}
+	}
+	return -1
+}
 */
