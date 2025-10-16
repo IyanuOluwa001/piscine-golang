@@ -1,21 +1,44 @@
-
+//Que 1: Write a function that returns the first rune of a string.
 /*
-Que 1: Write a function that returns the first rune of a string.
+main package
 
 package piscine
 
-func FirstRune(s string) rune {
+func FirstRune1 (s string) rune {
+	for _, r := range s{
+		return r
+	}
+	return 0
+}
+
+q1p1
+func FirstRune(s string) rune{
+	for _, r:= range s{
+
+	return r
+	}
+
+}
+
+q1p2
+func FirstRune1(s string) rune {
 	for _, r := range s {
-		return r // Return the first rune found
+		z01.PrintRune(r) // Return the first rune found
+	}
+	z01.PrintRune('\n')
+
+	for _, r:= range s{
+		return r
 	}
 	return 0 // Return 0 if string is empty (no rune)
 }
 
-Que 2: Write a function that returns the last rune of a string.
+
+//Que 2: Write a function that returns the last rune of a string.
 
 package piscine
 
-func LastRune(s string) rune {
+func LastRune (s string) rune {
 	var last rune
 	for _, r := range s {
 		last = r
@@ -23,10 +46,17 @@ func LastRune(s string) rune {
 	return last
 }
 
-Que 3: Write a function that returns the nth rune of a string.
-If not possible, it returns 0.
+//Go gives us a shortcut for looping over collections like strings, arrays, slices, maps:
+//for index, value := range something {
+	// code
+//}
 
-func NRune(s string, n int) rune {
+
+
+//Que 3: Write a function that returns the nth rune of a string. If not possible, it returns 0.
+package piscine
+
+func NRune (s string, n int) rune {
 	if n <= 0 {
 		return 0
 	}
@@ -42,10 +72,13 @@ func NRune(s string, n int) rune {
 	return 0 // n is larger than the number of runes
 }
 
-Que 4:
-Write a function that behaves like the Compare function.
 
-func Compare(a, b string) int {
+
+//Que 4:
+//Write a function that behaves like the Compare function.
+package piscine
+
+func Compare (a, b string) int {
 	if a == b {
 		return 0
 	}
@@ -54,11 +87,13 @@ func Compare(a, b string) int {
 	}
 	return 1
 }
+*/
 
-Que 5:
-Write a function that counts the letters of a string and returns the count.
+// Que 5:
+// Write a function that counts the letters of a string and returns the count.
+package piscine
 
-func AlphaCount(s string) int {
+func AlphaCount1(s string) int {
 	iyanu := 0
 	for _, r := range s {
 		if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') {
@@ -68,6 +103,7 @@ func AlphaCount(s string) int {
 	return iyanu
 }
 
+/*
 Que 6:
 
 
