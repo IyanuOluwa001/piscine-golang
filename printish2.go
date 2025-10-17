@@ -1,11 +1,15 @@
 package piscine
 
-func AlphaCount2(s string) int {
-	count := 0
-	for _, r := range s {
-		if (r >= 'a' && r <= 'z') || (r >= 'A' && r <= 'Z') {
-			count++
-		}
-	}
-	return count
+func AppendRange (min, max int []int){
+
+if min >= max{
+	return nil
+}
+
+var result []int
+for i := min, i < max, i++{
+	result = append(result, i)
+}
+
+return result
 }

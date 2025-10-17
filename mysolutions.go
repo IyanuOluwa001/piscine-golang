@@ -459,7 +459,7 @@ Min is included, and max is excluded.
 If min is greater than or equal to max, a nil slice is returned.
 
 make is not allowed for this exercise.
-*/
+
 
 package piscine
 
@@ -476,9 +476,11 @@ func AppendRange1(min, max int) []int {
 
 	return result
 }
+*/
 
-/*
+
 //Two - MakeRange
+/*
 Instructions
 
 Write a function that takes an int min and an int max as parameters. The function must return a slice of ints with all the values between min and max.
@@ -488,6 +490,7 @@ Min is included, and max is excluded.
 If min is greater than or equal to max, a nil slice is returned.
 
 append is not allowed for this exercise.
+
 
 package piscine
 
@@ -505,13 +508,17 @@ func MakeRange(min, max int) []int {
 
 	return result
 }
+*/
+
 
 //Three - ConcatParams
+/*
 Instructions
 
 Write a function that takes the arguments received in parameters and returns them as a string. The string is the result of all
 the arguments concatenated with a newline (\n) between.
 
+//We could just use strings.Join
 package piscine
 
 func ConcatParams(args []string) string {
@@ -528,14 +535,17 @@ func ConcatParams(args []string) string {
 }
 */
 
-/*
+
 //Four - Splitwhitespaces
+/*
 Instructions
 
 Write a function that separates the words of a string and puts them in a string slice.
 
 The separators are spaces, tabs and newlines.
-
+//We can use strings.Fields() function
+*/
+/*
 package piscine
 
 func SplitWhiteSpaces(s string) []string {
@@ -560,11 +570,40 @@ func SplitWhiteSpaces(s string) []string {
 	return words
 }
 
+*/
+/*
+| Step | Rune                              | Action             | word                            | words                   |
+| ---- | --------------------------------- | ------------------ | ------------------------------- | ----------------------- |
+| 1    | H                                 | add to word        | "H"                             | []                      |
+| 2    | e                                 | add                | "He"                            | []                      |
+| 3    | l                                 | add                | "Hel"                           | []                      |
+| 4    | l                                 | add                | "Hell"                          | []                      |
+| 5    | o                                 | add                | "Hello"                         | []                      |
+| 6    | ' '                               | separator → append | ""                              | ["Hello"]               |
+| 7    | h                                 | add                | "h"                             | ["Hello"]               |
+| 8    | o                                 | add                | "ho"                            | ["Hello"]               |
+| 9    | w                                 | add                | "how"                           | ["Hello"]               |
+| 10   | ' '                               | separator → append | ""                              | ["Hello", "how"]        |
+| 11   | a                                 | add                | "a"                             | ["Hello", "how"]        |
+| 12   | r                                 | add                | "ar"                            | ["Hello", "how"]        |
+| 13   | e                                 | add                | "are"                           | ["Hello", "how"]        |
+| 14   | ' '                               | separator → append | ""                              | ["Hello", "how", "are"] |
+| 15   | y                                 | add                | "y"                             | ["Hello", "how", "are"] |
+| 16   | o                                 | add                | "yo"                            | ["Hello", "how", "are"] |
+| 17   | u                                 | add                | "you"                           | ["Hello", "how", "are"] |
+| 18   | ?                                 | add                | "you?"                          | ["Hello", "how", "are"] |
+| END  | (no separator) → append last word | ""                 | ["Hello", "how", "are", "you?"] |                         |
+*/
+//SplitWhiteSpaces → returns []string{"Hello", "how", "are", "you?"}
+
 //Five - PrintwordStable
+/*
 Instructions
 
 Write a function that receives a string slice
 and prints each element of the slice in a seperate line.
+*/
+/*
 package piscine
 
 import "github.com/01-edu/z01"
@@ -577,13 +616,24 @@ func PrintWordsTables(a []string) {
 		z01.PrintRune('\n')
 	}
 }
+	*/
+
+//Output
+/*
+Hello
+how
+are
+you?
+*/
 
 
 //Six - Split
-Instructions
+//Instructions
 
-Write a function that receives a string and a separator and
-returns a slice of strings that results of splitting the string s by the separator sep.
+//Write a function that receives a string and a separator and
+//returns a slice of strings that results of splitting the string s by the separator sep.
+
+/*
 package piscine
 
 func Split(s, sep string) []string {
@@ -606,6 +656,9 @@ func Split(s, sep string) []string {
 	result = append(result, word)
 	return result
 }
+	*/
+	
+//We could also just use strings.Split
 
 //Seven - ConvertBase
 /*
