@@ -478,7 +478,6 @@ func AppendRange1(min, max int) []int {
 }
 */
 
-
 //Two - MakeRange
 /*
 Instructions
@@ -510,7 +509,6 @@ func MakeRange(min, max int) []int {
 }
 */
 
-
 //Three - ConcatParams
 /*
 Instructions
@@ -534,7 +532,6 @@ func ConcatParams(args []string) string {
 	return result
 }
 */
-
 
 //Four - Splitwhitespaces
 /*
@@ -616,7 +613,7 @@ func PrintWordsTables(a []string) {
 		z01.PrintRune('\n')
 	}
 }
-	*/
+*/
 
 //Output
 /*
@@ -626,12 +623,11 @@ are
 you?
 */
 
+// Six - Split
+// Instructions
 
-//Six - Split
-//Instructions
-
-//Write a function that receives a string and a separator and
-//returns a slice of strings that results of splitting the string s by the separator sep.
+// Write a function that receives a string and a separator and
+// returns a slice of strings that results of splitting the string s by the separator sep.
 
 /*
 package piscine
@@ -656,9 +652,9 @@ func Split(s, sep string) []string {
 	result = append(result, word)
 	return result
 }
-	*/
-	
-//We could also just use strings.Split
+*/
+
+// We could also just use strings.Split
 
 //Seven - ConvertBase
 /*
@@ -674,7 +670,6 @@ Write a function that receives three arguments:
 
 Only valid bases will be tested. Negative numbers will not be tested.
 */
-
 
 package piscine
 
@@ -713,8 +708,6 @@ func indexOf1(ch rune, base string) int {
 	}
 	return -1
 }
-
-
 
 /*
 package main2
