@@ -714,8 +714,9 @@ func indexOf1(ch rune, base string) int {
 	return -1
 }
 
-/*
 
+
+/*
 package main2
 
 import (
@@ -1286,6 +1287,7 @@ This tries to fill in the dots until the puzzle is complete.
 
 If it works, we print it.
 If not → Error.
+
 🧩 canPlace() — The Checker
 
 This function answers the question:
@@ -1302,6 +1304,7 @@ It checks:
 
 If the number already appears there → ❌ return false.
 Otherwise → ✅ return true.
+
 🔁 solveSudoku() — The Real Genius (Backtracking)
 
 This is like trying to solve a maze.
@@ -1428,5 +1431,4 @@ To access more intelligence, create an account or log in.
 
 
 ChatGPT can make mistakes. Check important info.
-
 */
