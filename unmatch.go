@@ -3,18 +3,18 @@ package piscine
 func Unmatch(a []int) int {
 	counts := make(map[int]int)
 
-	// Count how many times each number appears
+	// Step 1: Count how many times each number appears
 	for _, num := range a {
 		counts[num]++
 	}
 
-	// Find the number that appears an odd number of times
-	for key, val := range counts {
-		if val%2 != 0 {
-			return key
+	// Step 2: Return the first number in the original slice that appears an odd number of times
+	for _, num := range a {
+		if counts[num]%2 != 0 {
+			return num
 		}
 	}
 
-	// If all numbers have pairs, return -1
+	// Step 3: If every number has a pair, return -1
 	return -1
 }
