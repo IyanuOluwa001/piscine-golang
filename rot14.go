@@ -1,7 +1,7 @@
 package piscine
 
 func Rot14(s string) string {
-	result := ""
+	convertedString := ""
 
 	for _, r := range s {
 		if r >= 'a' && r <= 'z' {
@@ -15,11 +15,34 @@ func Rot14(s string) string {
 				r = r - 26
 			}
 		}
-		result = result + string(r)
+		convertedString = convertedString + string(r)
 	}
 
-	return result
+	return convertedString
 }
+
+/*
+func Rot14(s string) string {
+	convertedString := ""
+
+	for _, givenText := range s {
+		if givenText >= 'a' && givenText <= 'z' {
+			givenText = givenText + 14
+			if givenText > 'z' {
+				givenText = givenText - 26
+			}
+		} else if givenText >= 'A' && givenText <= 'Z' {
+			givenText = givenText + 14
+			if givenText > 'Z' {
+				givenText = givenText - 26
+			}
+		}
+		convertedString = convertedString + string(givenText)
+	}
+
+	return convertedString
+}
+*/
 
 /*
 func Rot14(s string) string {
