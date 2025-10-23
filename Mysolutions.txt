@@ -296,3 +296,41 @@ for i := 0; i < len(a) && i < len(b); i++ {
 		return 1
 	}
 	return 0
+
+	HACKATHON:
+
+	Question 10:
+	Instructions
+Write a function JumpOver() that takes a string and returns another string with every third character.
+Prints the output followed by newline \n.
+If the string is empty, return newline \n.
+If there is no third character, return newline \n.
+
+Expected function
+func JumpOver(str string) string {
+
+}
+
+Usage
+Here is a possible program to test your function:
+
+package main
+
+import (
+	"fmt"
+	"piscine"
+)
+
+func main() {
+	fmt.Print(piscine.JumpOver("1010101010"))
+	fmt.Print(piscine.JumpOver(""))
+	fmt.Print(piscine.JumpOver("t w e l v e"))
+	fmt.Print(piscine.JumpOver("12"))
+}
+And its output:
+
+$ go run . | cat -e
+101$
+$
+w v$
+$
