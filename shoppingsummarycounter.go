@@ -6,19 +6,16 @@ func ShoppingSummaryCounter(str string) map[string]int {
 
 	for _, r := range str {
 		if r == ' ' {
-			if word != "" {
-				summary[word]++
-				word = ""
-			}
+			// count current word, even if it's empty
+			summary[word]++
+			word = ""
 		} else {
 			word += string(r)
 		}
 	}
 
-	// handle last word
-	if word != "" {
-		summary[word]++
-	}
+	// count last word
+	summary[word]++
 
 	return summary
 }
