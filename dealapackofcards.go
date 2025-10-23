@@ -1,56 +1,27 @@
 package piscine
 
 import (
-	"strconv"
+	"fmt"
 
 	"github.com/01-edu/z01"
 )
 
 func DealAPackOfCards(deck []int) {
-	cardsPerPlayer := len(deck) / 4
+	// The deck is always 12 cards long
+	cardsPerPlayer := 3
+	player := 1
+	index := 0
 
-	for i := 0; i < 4; i++ {
-		player := "Player " + strconv.Itoa(i+1) + ": "
-		for _, r := range player {
-			z01.PrintRune(r)
-		}
-
-		start := i * cardsPerPlayer
-		end := start + cardsPerPlayer
-
-		for j := start; j < end; j++ {
-			num := strconv.Itoa(deck[j])
-			for _, r := range num {
-				z01.PrintRune(r)
-			}
-
-			if j != end-1 {
-				z01.PrintRune(',')
-				z01.PrintRune(' ')
+	for player <= 4 {
+		fmt.Printf("Player %d: ", player)
+		for j := 0; j < cardsPerPlayer; j++ {
+			fmt.Printf("%d", deck[index])
+			index++
+			if j < cardsPerPlayer-1 {
+				fmt.Printf(", ")
 			}
 		}
 		z01.PrintRune('\n')
+		player++
 	}
 }
-
-/*
-func DealAPackOfCards(deck []int) {
-
-	cardsPerPlayer := len(deck) / 4
-
-	for i := 0; i < 4; i++ {
-		start := i * cardsPerPlayer
-		end := start + cardsPerPlayer
-
-		fmt.Printf("Player %d: ", i+1)
-		for j := start; j < end; j++ {
-			if j != end-1 {
-				fmt.Printf("%d, ", deck[j])
-			} else {
-				fmt.Printf("%d", deck[j])
-			}
-		}
-		z01.PrintRune()
-	}
-}
-*/
