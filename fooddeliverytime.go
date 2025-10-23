@@ -1,7 +1,5 @@
 package piscine
 
-import "fmt"
-
 type food struct {
 	preptime int
 }
@@ -15,8 +13,7 @@ func FoodDeliveryTime(order string) int {
 
 	item, exists := menu[order]
 	if !exists {
-		fmt.Println("404")
-		return 0
+		return 404
 	}
 	return item.preptime
 }
