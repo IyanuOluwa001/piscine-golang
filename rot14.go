@@ -1,26 +1,24 @@
 package piscine
 
 func Rot14(s string) string {
-result := ""
+	result := ""
 
-for _, r := range s {
-	if r >= 'a' && r <= 'z' {
-		r = r + 14
-		if r > 'z' {
-			r = r - 26
+	for _, r := range s {
+		if r >= 'a' && r <= 'z' {
+			r = r + 14
+			if r > 'z' {
+				r = r - 26
+			}
+		} else if r >= 'A' && r <= 'Z' {
+			r = r + 14
+			if r > 'Z' {
+				r = r - 26
+			}
 		}
-	} else if r >= 'A' && r <= 'Z' {
-		r = r + 14
-		if r > 'Z' {
-			r = r - 26
-		}
+		result = result + string(r)
 	}
-	result = result + string(r)
-}
 
-return result
-
-
+	return result
 }
 
 /*
@@ -36,7 +34,7 @@ for _, r := range s{
 	} else {
 		z01.PrintRune('0')
 	}
-	
+
 }
 }
 */
