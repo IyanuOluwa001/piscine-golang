@@ -15,31 +15,40 @@ func LoafOfBread(str string) string {
 	}
 
 	result := ""
+	word := ""
 	count := 0
-	skip := false
+	skipNext := false
 
 	for _, r := range str {
 		if r == ' ' {
 			continue
 		}
-		if skip {
-			skip = false
+		if skipNext {
+			skipNext = false
 			continue
 		}
 
-		result += string(r)
+		word += string(r)
 		count++
 
 		if count == 5 {
-			result += " "
+			// add group to result
+			if len(result) > 0 {
+				result += " "
+			}
+			result += word
+			word = ""
 			count = 0
-			skip = true
+			skipNext = true // skip next non-space character
 		}
 	}
 
-	// remove any trailing space
-	if len(result) > 0 && result[len(result)-1] == ' ' {
-		result = result[:len(result)-1]
+	// add any remaining characters
+	if len(word) > 0 {
+		if len(result) > 0 {
+			result += " "
+		}
+		result += word
 	}
 
 	result += "\n"
