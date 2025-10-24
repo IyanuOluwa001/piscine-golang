@@ -1,8 +1,6 @@
 package piscine
 
-import "github.com/01-edu/z01"
-
-func LoafOfBread(str string) {
+func LoafOfBread(str string) string {
 	// Count non-space characters
 	countNonSpace := 0
 	for _, r := range str {
@@ -13,15 +11,12 @@ func LoafOfBread(str string) {
 
 	// If less than 5 non-space characters → Invalid Output
 	if countNonSpace < 5 {
-		for _, r := range "Invalid Output\n" {
-			z01.PrintRune(r)
-		}
-		return
+		return "Invalid Output\n"
 	}
 
-	count := 0    // counts characters in current "word"
-	skip := false // whether to skip next character
-	word := 0     // counts total chars to handle skips
+	result := ""
+	count := 0    // counts characters in current group
+	skip := false // skip next character
 
 	for _, r := range str {
 		if r == ' ' {
@@ -32,15 +27,16 @@ func LoafOfBread(str string) {
 			continue
 		}
 
-		z01.PrintRune(r)
+		result += string(r)
 		count++
-		word++
 
 		if count == 5 {
-			z01.PrintRune(' ')
+			result += " "
 			count = 0
-			skip = true // skip next char
+			skip = true // skip next character
 		}
 	}
-	z01.PrintRune('\n')
+
+	result += "\n"
+	return result
 }
