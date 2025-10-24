@@ -15,8 +15,8 @@ func LoafOfBread(str string) string {
 	}
 
 	result := ""
-	count := 0    // counts characters in current group
-	skip := false // skip next character
+	count := 0
+	skip := false
 
 	for _, r := range str {
 		if r == ' ' {
@@ -33,8 +33,13 @@ func LoafOfBread(str string) string {
 		if count == 5 {
 			result += " "
 			count = 0
-			skip = true // skip next character
+			skip = true
 		}
+	}
+
+	// remove any trailing space
+	if len(result) > 0 && result[len(result)-1] == ' ' {
+		result = result[:len(result)-1]
 	}
 
 	result += "\n"
