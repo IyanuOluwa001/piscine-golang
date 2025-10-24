@@ -6,33 +6,54 @@ func LoafOfBread(str string) string {
 		return "Invalid Output\n"
 	}
 
-	// Remove spaces from string for processing
-	cleaned := ""
-	for _, char := range str {
-		if char != ' ' {
-			cleaned += string(char)
+	// Process string without removing spaces, keeping original characters
+	result := ""
+	count := 0
+	i := 0
+
+	for i < len(str) {
+		// Skip spaces
+		for i < len(str) && str[i] == ' ' {
+			i++
+		}
+		// If we reach the end while skipping spaces
+		if i >= len(str) {
+			break
+		}
+		// Start a new 5-character group
+		group := ""
+		groupLen := 0
+		// Collect 5 non-space characters
+		for i < len(str) && groupLen < 5 {
+			if str[i] != ' ' {
+				group += string(str[i])
+				groupLen++
+			}
+			i++
+		}
+		// If we got a full group of 5 characters
+		if groupLen == 5 {
+			result += group
+			count++
+			// Skip the next non-space character if we haven't reached the end
+			for i < len(str) && str[i] == ' ' {
+				i++
+			}
+			// Skip one non-space character
+			if i < len(str) {
+				i++
+			}
+			// Add space after group if more characters remain
+			if i < len(str) || (i == len(str) && count*6 < len(str)) {
+				result += " "
+			}
 		}
 	}
 
-	// If cleaned string is less than 5 characters
-	if len(cleaned) < 5 {
+	// If no valid groups were formed
+	if count == 0 {
 		return "Invalid Output\n"
 	}
 
-	result := ""
-	for i := 0; i < len(cleaned); i += 6 {
-		// If remaining characters are less than 5, break
-		if i+5 > len(cleaned) {
-			break
-		}
-		// Add 5 characters to result
-		result += cleaned[i : i+5]
-		// Add space after 5 characters
-		if i+5 < len(cleaned) {
-			result += " "
-		}
-	}
-	// Add newline at the end
-	result += "\n"
-	return result
+	return result + "\n"
 }
