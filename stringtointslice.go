@@ -2,16 +2,22 @@ package piscine
 
 import "github.com/01-edu/z01"
 
-func StringToIntSlice(str string) {
+func StringToIntSlice(str string) []int {
+	var result []int
 	for _, r := range str {
-		printNumber(int(r)) // print the integer value of each rune
-		z01.PrintRune(' ')  // separate numbers with a space
+		result = append(result, int(r))
+	}
+	for i, v := range result {
+		printInt(v)
+		if i < len(result)-1 {
+			z01.PrintRune(' ')
+		}
 	}
 	z01.PrintRune('\n')
+	return result
 }
 
-// helper to print an integer using z01.PrintRune
-func printNumber(n int) {
+func printInt(n int) {
 	if n == 0 {
 		z01.PrintRune('0')
 		return
@@ -20,15 +26,12 @@ func printNumber(n int) {
 		z01.PrintRune('-')
 		n = -n
 	}
-
 	var digits []rune
 	for n > 0 {
-		digits = append(digits, rune('0'+(n%10)))
+		digits = append([]rune{rune('0' + n%10)}, digits...)
 		n /= 10
 	}
-
-	// print digits in reverse
-	for i := len(digits) - 1; i >= 0; i-- {
-		z01.PrintRune(digits[i])
+	for _, d := range digits {
+		z01.PrintRune(d)
 	}
 }
