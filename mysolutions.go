@@ -1425,3 +1425,4 @@ To access more intelligence, create an account or log in.
 
 ChatGPT can make mistakes. Check important info.
 */
+//go build -o quadA ./quadA.go
